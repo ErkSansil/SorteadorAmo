@@ -132,6 +132,7 @@ button:hover {
     max-width: 200px; 
     height: auto;     
     border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     animation: fadeIn 1s ease forwards;
 }
 
