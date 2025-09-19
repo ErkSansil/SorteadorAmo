@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorteador AMO - Oficial</title>
+    <link rel="icon" type="image/png" href="LOGO_AMO_RosaAzul.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Imagem fixa no topo -->
+    <div class="logo-container">
+        <img src="Logo_AMO.jpg" alt="Logo AMO" class="logo">
+    </div>
+
+    <div class="container">
+        <div class="inputs" id="inputs">
+            <label for="min">Número mínimo:</label>
+            <input type="number" id="min" value="1">
+            <label for="max">Número máximo:</label>
+            <input type="number" id="max" value="100">
+        </div>
+
+        <button id="sortearBtn">Sortear Número</button>
+
+        <div id="contador" class="contador"></div>
+
+        <!-- Texto que aparece após sorteio -->
+        <div id="textoSorteio" class="texto-sorteio">E o número sorteado foi...</div>
+
+        <div id="resultado" class="resultado"></div>
+        <div id="mensagem" class="mensagem"></div>
+
+        <button id="novoSorteioBtn" class="novo-sorteio">Fazer novo sorteio</button>
+    </div>
+
+    <!-- Confetes -->
+    <div id="confetes"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
