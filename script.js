@@ -22,6 +22,8 @@ sortearBtn.addEventListener('click', () => {
     contador.textContent = '';
     textoSorteio.style.display = 'none';
     novoSorteioBtn.style.display = 'none';
+    document.getElementById('dataHora').textContent = '';
+    document.getElementById('dataHora').style.display = 'none';
 
     let tempo = 5;
     contador.textContent = tempo;
@@ -42,6 +44,16 @@ sortearBtn.addEventListener('click', () => {
             resultado.textContent = numeroSorteado;
             mensagem.textContent = "PARABÉNS!!🎉";
 
+            // Mostra data e hora do sorteio
+            const agora = new Date();
+            const opcoes = { 
+                day: '2-digit', month: '2-digit', year: 'numeric', 
+                hour: '2-digit', minute: '2-digit', second: '2-digit'
+            };
+            document.getElementById('dataHora').textContent = 
+                "Sorteio realizado em: " + agora.toLocaleString('pt-BR', opcoes);
+            document.getElementById('dataHora').style.display = 'block';
+
             gerarConfetes(100);
 
             setTimeout(() => {
@@ -59,6 +71,8 @@ novoSorteioBtn.addEventListener('click', () => {
     contador.textContent = '';
     textoSorteio.style.display = 'none';
     novoSorteioBtn.style.display = 'none';
+    document.getElementById('dataHora').textContent = '';  // limpa data e hora
+    document.getElementById('dataHora').style.display = 'none'; // esconde
 });
 
 function gerarConfetes(qtd) {
