@@ -1,44 +1,154 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
     <title>Sorteador AMO - Oficial</title>
-    <link rel="icon" type="image/png" href="LOGO_AMO_RosaAzul.png">
-    <link rel="stylesheet" href="style.css">
+
+    <link rel="icon"
+          type="image/png"
+          href="LOGO_AMO_RosaAzul.png">
+
+    <link rel="stylesheet"
+          href="style.css">
+
 </head>
+
 <body>
-    <!-- Imagem fixa no topo -->
+
+    <!-- LOGO -->
     <div class="logo-container">
-        <img src="Logo_AMO.jpg" alt="Logo AMO" class="logo">
+
+        <img src="Logo_3D_AMO.png"
+             alt="Logo AMO"
+             class="logo">
+
     </div>
 
-    <div class="container">
-        <div class="inputs" id="inputs">
-            <label for="min">Número mínimo:</label>
-            <input type="number" id="min" value="1">
-            <label for="max">Número máximo:</label>
-            <input type="number" id="max" value="100">
+
+
+    <!-- ABAS -->
+    <div class="abas">
+
+        <button onclick="mostrarAba('aleatorio')">
+            🎲 Sorteio Aleatório
+        </button>
+
+        <button onclick="mostrarAba('planilha')">
+            📄 Sorteio ID
+        </button>
+
+    </div>
+
+
+
+    <!-- ABA ALEATÓRIO -->
+    <div class="container"
+         id="abaAleatorio">
+
+        <div class="inputs"
+             id="inputs">
+
+            <label for="min">
+                Número mínimo:
+            </label>
+
+            <input type="number"
+                   id="min"
+                   value="1">
+
+            <label for="max">
+                Número máximo:
+            </label>
+
+            <input type="number"
+                   id="max"
+                   value="100">
+
         </div>
 
-        <button id="sortearBtn">Sortear Número</button>
+        <button id="sortearBtn">
+            Sortear Número
+        </button>
 
-        <div id="contador" class="contador"></div>
+        <div id="contador"
+             class="contador"></div>
 
-        <!-- Texto que aparece após sorteio -->
-        <div id="textoSorteio" class="texto-sorteio">E o número sorteado foi...</div>
+        <div id="textoSorteio"
+             class="texto-sorteio">
 
-        <div id="resultado" class="resultado"></div>
-        <div id="mensagem" class="mensagem"></div>
+            E o número sorteado foi...
 
-        <button id="novoSorteioBtn" class="novo-sorteio">Fazer novo sorteio</button>
+        </div>
+
+        <div id="resultado"
+             class="resultado"></div>
+
+        <div id="mensagem"
+             class="mensagem"></div>
+
+        <button id="novoSorteioBtn"
+                class="novo-sorteio">
+
+            Fazer novo sorteio
+
+        </button>
+
     </div>
 
-    <!-- Confetes -->
+
+
+    <!-- ABA PLANILHA -->
+    <div class="container"
+         id="abaPlanilha"
+         style="display:none;">
+
+        <h2 class="titulo-planilha">
+            Sorteio: Dia das MÃES
+        </h2>
+
+        <button id="sortearPlanilhaBtn">
+            Sortear ID
+        </button>
+
+        <div id="contadorPlanilha"
+             class="contador"></div>
+
+        <div id="textoSorteioPlanilha"
+             class="texto-sorteio">
+
+            E a participante sorteada foi...
+
+        </div>
+
+        <div id="resultadoPlanilha"
+             class="resultado"></div>
+
+        <div id="mensagemPlanilha"
+             class="mensagem"></div>
+
+        <button id="novoSorteioPlanilhaBtn"
+                class="novo-sorteio">
+
+            Fazer novo sorteio
+
+        </button>
+
+    </div>
+
+
+
+    <!-- CONFETES -->
     <div id="confetes"></div>
 
+    <div id="dataHora"
+         class="data-hora"></div>
+
     <script src="script.js"></script>
-    <div id="dataHora" class="data-hora"></div>
 
 </body>
-</html
+</html>
