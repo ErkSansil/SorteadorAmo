@@ -26,14 +26,23 @@ const dataHora =
 
 
 /* =====================================================
-ATUALIZA DATA E HORA
+CONTROLE ANTI DUPLO CLIQUE
 ===================================================== */
+/*
+Evita iniciar outro sorteio enquanto
+já existe um em andamento.
+*/
+
+let sorteioEmAndamento = false;
+
+
+
 /* =====================================================
 ATUALIZA DATA E HORA
 ===================================================== */
 /*
-Agora o horário fica congelado exatamente
-no momento em que o resultado sai.
+O horário fica congelado exatamente
+no momento em que o resultado aparece.
 */
 
 function atualizarDataHora(){
@@ -250,6 +259,17 @@ SORTEIO ALEATÓRIO
 
 sortearBtn.addEventListener('click', ()=>{
 
+    // Bloqueia múltiplos cliques
+    if(sorteioEmAndamento){
+
+        return;
+
+    }
+
+    sorteioEmAndamento = true;
+
+
+
     const min = parseInt(
         document.getElementById('min').value
     );
@@ -267,6 +287,8 @@ sortearBtn.addEventListener('click', ()=>{
     ){
 
         alert("Digite valores válidos!");
+
+        sorteioEmAndamento = false;
 
         return;
 
@@ -374,6 +396,11 @@ sortearBtn.addEventListener('click', ()=>{
             novoSorteioBtn.style.display =
                 'inline-block';
 
+
+
+            // Libera novo sorteio
+            sorteioEmAndamento = false;
+
         }
 
     },1000);
@@ -391,6 +418,17 @@ A roleta é só visual.
 */
 
 sortearPlanilhaBtn.addEventListener('click', ()=>{
+
+    // Bloqueia múltiplos cliques
+    if(sorteioEmAndamento){
+
+        return;
+
+    }
+
+    sorteioEmAndamento = true;
+
+
 
     resetarSorteioPlanilha();
 
@@ -451,6 +489,11 @@ sortearPlanilhaBtn.addEventListener('click', ()=>{
         alert(
             "Erro ao conectar com Google Sheets"
         );
+
+
+
+        // Libera novamente em caso de erro
+        sorteioEmAndamento = false;
 
     });
 
@@ -541,8 +584,19 @@ sortearPlanilhaBtn.addEventListener('click', ()=>{
 
 
 
-                        resultadoElemento.textContent =
-                            resultadoSorteio.numero;
+                        /* =========================================
+                        NOME DA GANHADORA EM DESTAQUE
+                        ========================================= */
+
+                        resultadoElemento.innerHTML =
+
+                            resultadoSorteio.nome +
+
+                            "<div style='font-size:0.45em; margin-top:12px;'>#" +
+
+                            resultadoSorteio.numero +
+
+                            "</div>";
 
 
 
@@ -554,8 +608,7 @@ sortearPlanilhaBtn.addEventListener('click', ()=>{
 
                         document.getElementById('mensagemPlanilha')
                             .innerHTML =
-                            resultadoSorteio.nome +
-                            "<br><span style='font-size:0.9em;'>PARABÉNS!! 🎉</span>";
+                            "PARABÉNS!! 🎉";
 
 
 
@@ -573,6 +626,11 @@ sortearPlanilhaBtn.addEventListener('click', ()=>{
 
                         novoSorteioPlanilhaBtn.style.display =
                             'inline-block';
+
+
+
+                        // Libera novo sorteio
+                        sorteioEmAndamento = false;
 
                     },500);
 
