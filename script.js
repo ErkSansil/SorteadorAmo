@@ -469,7 +469,7 @@ sortearPlanilhaBtn.addEventListener('click', ()=>{
     ========================================= */
 
     fetch(
-        "https://script.google.com/macros/s/AKfycbzmRH-XW_uuh8IVtbrKPrOkC4_1in-6le5pFuDf8oFONECcN9U0NyYGLtwRPE4eng6u/exec"
+        "(API GOOGLE SHEETS)"
     )
 
     .then(response => response.json())
